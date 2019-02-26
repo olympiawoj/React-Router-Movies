@@ -13,9 +13,17 @@ export default class App extends Component {
     };
   }
 
+  //Add logic so that the user can't save a movie twice
   addToSavedList = movie => {
     const savedList = this.state.savedList;
-    savedList.push(movie);
+
+    //   if (!savedList.includes(movie)) {
+    //     savedList.push(movie);
+    //   }
+    //   this.setState({ savedList });
+    // };
+
+    !savedList.includes(movie) ? savedList.push(movie) : null;
     this.setState({ savedList });
   };
 

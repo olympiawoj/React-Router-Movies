@@ -15,17 +15,28 @@ export default class App extends Component {
 
   //Add logic so that the user can't save a movie twice
   addToSavedList = movie => {
+    const foundId = false;
+
+    for (let item of this.state.savedList)
+      if (item.id === movie.id) {
+        return;
+      }
     const savedList = this.state.savedList;
-
-    //   if (!savedList.includes(movie)) {
-    //     savedList.push(movie);
-    //   }
-    //   this.setState({ savedList });
-    // };
-
-    !savedList.includes(movie) ? savedList.push(movie) : null;
+    savedList.push(movie);
     this.setState({ savedList });
   };
+
+  // // !savedList.includes(movie) ? savedList.push(movie) : null;
+  // this.setState({ savedList });
+  // };
+
+  // addToSavedList = movie => {
+  //   const savedList = this.state.savedList;
+  //   if (!savedList.includes(movie)) {
+  //     savedList.push(movie);
+  //   }
+  //   this.setState({ savedList });
+  // };
 
   render() {
     return (
